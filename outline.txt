@@ -1,0 +1,25 @@
+- expression problem
+    - implement an abstract method on a class outside your control
+        - the old OOP draw example
+        - provide your own shape objects
+        - but what about strings?  why not draw strings?
+    - option 1: wrap it
+        - messy -- equality, etc.
+    - option 2: monkey patch
+        - what if someone else wants to add a draw method
+    - one good solution: generic methods
+- multimethods
+    - dispatch function to take args and produce a dispatch value
+    - implementation functions associated with dispatch values
+    - example of string draw
+- protocols
+    - named groups of methods
+    - less general than multimethods
+      - dispatch is always class of first arg
+    - "platform fast" -- Halloway
+    - example of string draw
+- records
+    - "platform fast" concrete objects
+    - act just like clojure hash-maps, but are also simple Java objects
+- types
+    - like records, but even simpler -- don't act like maps

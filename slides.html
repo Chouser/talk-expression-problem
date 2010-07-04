@@ -1,0 +1,157 @@
+<html>
+  <head>
+    <title>Clojure's Solutions to the Expression Problem</title>
+    <style type="text/css">
+      h1 {
+        margin-top: 0;
+      }
+
+      section {
+        -webkit-transition-property: top, left, width, height, border-width,
+        border-radius;
+        -webkit-transition-duration: 0.3s;
+        -webkit-transition-timing-function: ease-in-out;
+        width: 90%;
+        height: 90%;
+        position: absolute;
+        left: 5%;
+        top: 100%;
+        background: #eee;
+        border: 2px #000 solid;
+        border-radius: 10px;
+      }
+
+      body { overflow: hidden; }
+
+      body.v1 section#s1 { top: 5%; }
+      body.h1 section#s1 { top: -105%; }
+      body.v2 section#s2 { top: 5%; }
+      body.h2 section#s2 { top: -105%; }
+
+      body.v3 section#s3 { top: 5%; }
+      section#s3 { z-index: 1; }
+      body.h3 section#s3, body.h4 section#s3 {
+        text-align: left;
+        top: 10%;
+        left: 70%;
+        width: 20%;
+        height: 20%;
+        border-width: 1px;
+        border-radius: 3px;
+      }
+      body.h3 section#s3 .inner {
+        -webkit-transform: scale(0.2);
+        -moz-transform: scale(0.2);
+        -webkit-transform-origin: 0 0;
+        -moz-transform-origin: 0 0;
+      }
+      body.h4 section#s3 {
+        top: -105%;
+      }
+
+      body.v4 section#s4 { top: 5%; }
+      body.h4 section#s4 { top: -105%; }
+
+      body.v5 section#s5 { top: 5%; }
+      body.h5 section#s5 { top: 5%; }
+      body.h6 section#s5 { top: -105%; }
+
+      section#s6 {
+        top: 5%;
+        visibility: hidden;
+        background: none;
+      }
+      section#s6 .i2 {
+        width: 30em;
+      }
+      section#s6 .i1 {
+        -webkit-transition-property: width;
+        -webkit-transition-duration: 0.3s;
+        -webkit-transition-timing-function: ease-in-out;
+        width: 0;
+        overflow: hidden;
+        height: 100%;
+        background: #eee;
+        border-radius: 10px;
+      }
+      body.v6 section#s6 .i1 {
+        width: 100%;
+      }
+      body.v6 section#s6 { visibility: visible; }
+      body.h6 section#s6 { top: -105%; }
+    </style>
+    <script type="text/javascript">
+      function showslide(v) {
+        var c = "v" + v;
+        for( var i = 0; i < v; ++i ) {
+          c += " h" + i;
+        }
+        document.body.setAttribute("class", c);
+        document.location.hash = "v" + v;
+      }
+      function deltaslide(d) {
+        showslide(parseInt(document.location.hash.substr(2) || "-1") + d);
+      }
+      window.addEventListener("keyup", function(e) {
+        var delta = ({37: -1, 39: 1})[e.keyCode];
+        if(delta) {
+          deltaslide(delta);
+        }
+      }, false);
+      window.addEventListener("load", function(e) {
+        deltaslide(0);
+      }, false);
+    </script>
+  </head>
+  <body>
+    <section id="s1">
+      <h1>Slide 1</h1>
+      <ul>
+        <li>Foo 1</li>
+        <li>Foo 2</li>
+      </ul>
+    </section>
+    <section id="s2">
+      <h1>Slide 2</h1>
+      <ul>
+        <li>Bar 1</li>
+        <li>Bar 2</li>
+      </ul>
+    </section>
+    <section id="s3">
+      <div class="inner">
+        <h1>Slide 3</h1>
+        <ul>
+          <li>Baz 1</li>
+          <li>Baz 2</li>
+        </ul>
+      </div>
+    </section>
+    <section id="s4">
+      <h1>Slide 4</h1>
+      <ul>
+        <li>Bar 1</li>
+        <li>Bar 2</li>
+      </ul>
+    </section>
+    <section id="s5">
+      <h1>Slide 5</h1>
+      <ul>
+        <li>Bar 1</li>
+        <li>Bar 2</li>
+      </ul>
+    </section>
+    <section id="s6">
+      <div class="i1">
+      <div class="i2">
+        <h1>Slide 5</h1>
+        <ul>
+          <li>Bar 1</li>
+          <li>Bar 2</li>
+          <li>And another thing...</li>
+        </ul>
+      </div>
+      </div>
+    </section>
+  </body>
+</html>
