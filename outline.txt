@@ -12,14 +12,29 @@
     - dispatch function to take args and produce a dispatch value
     - implementation functions associated with dispatch values
     - example of string draw
+    - example of function built on top of multimethods
 - protocols
     - named groups of methods
     - less general than multimethods
       - dispatch is always class of first arg
     - "platform fast" -- Halloway
     - example of string draw
+    - example of function outside protocol using them
 - records
     - "platform fast" concrete objects
     - act just like clojure hash-maps, but are also simple Java objects
 - types
     - like records, but even simpler -- don't act like maps
+
+
+
+solve a problem twice
+once in clojure and once in language whose creators prefer it to be called The
+CoffeeSharp Enterprise Copperlight Beans Language -- Strawman
+
+Each of you here probably has a language you're comfortable with.  You are aware
+of some of its weaknesses, but it's a generally good language that lets you get
+things done.  I'm sure that Strawman is a worse language in every way than yours is.  Of course it's worse than Clojure, because that's how I've designed it.  But the question I hope you ask youself as we go along is this: is your favorite language as much better than Strawman as you'd like it to be.
+
+
+
