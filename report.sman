@@ -1,3 +1,45 @@
+public class InventoryItem {
+  public description;
+  public count;
+
+  public InventoryItem(description, count) {
+    this.description = description;
+    this.count = count;
+  }
+
+  public static getTestData() {
+    data = new Vector();
+    data.add(new InventoryItem("Widget", 28));
+    data.add(new InventoryItem("Gizmo",  32));
+    data.add(new InventoryItem("Thingy", 38));
+    return data;
+  }
+}
+
+public class PurchaseOrder {
+  public id;
+  public date;
+  public ammount;
+
+  public PurchaseOrder(id, date, ammount) {
+    this.id = id;
+    this.date = date;
+    this.ammount = ammount;
+  }
+
+  public static getTestData() {
+    data = new Vector();
+    data.add(new PurchaseOrder(1, "2010-01-01", 12.99));
+    data.add(new PurchaseOrder(2, "2010-02-02", 24.98));
+    data.add(new PurchaseOrder(3, "2010-03-03", 18.85));
+    return data;
+  }
+}
+
+
+
+
+
 abstract class DataRow {
   public getColumnNames();
   public getValue(columnName);
