@@ -1,0 +1,59 @@
+abstract class DataRow {
+  public getColumnNames();
+  public getValue(columnName);
+}
+
+public class Person implements DataRow {
+  public name;
+  public age;
+
+  public Person(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  public getColumnNames() {
+    ...
+  }
+
+  public getValue(columnName) {
+    if(columnName == "name") return this.name;
+    else if(columnName == "age") return this.age;
+    return;
+  }
+}
+
+public class TestData {
+  public static getTestData() {
+    data = new Vector();
+    data.add(new Person("Andrew", 28));
+    data.add(new Person("Bill"  , 38));
+    data.add(new Person("Carrie", 32));
+    return data;
+  }
+}
+
+
+
+
+
+
+public class Person {
+  public String name;
+  public Integer age;
+
+  public Person(String name, Integer age) {
+    this.name = name;
+    this.age = age;
+  }
+}
+
+public class TestData {
+  public static Vector getTestData() {
+    Vector data = new Vector();
+    data.add(new Person("Andrew", 28));
+    data.add(new Person("Bill"  , 38));
+    data.add(new Person("Carrie", 32));
+    return data;
+  }
+}
