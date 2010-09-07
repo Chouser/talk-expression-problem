@@ -1,10 +1,10 @@
 public class InventoryItem {
   public description;
-  public count;
+  public quantity;
 
-  public InventoryItem(description, count) {
+  public InventoryItem(description, quantity) {
     this.description = description;
-    this.count = count;
+    this.quantity = quantity;
   }
 
   public static getTestData() {
@@ -19,12 +19,12 @@ public class InventoryItem {
 public class PurchaseOrder {
   public id;
   public date;
-  public ammount;
+  public amount;
 
-  public PurchaseOrder(id, date, ammount) {
+  public PurchaseOrder(id, date, amount) {
     this.id = id;
     this.date = date;
-    this.ammount = ammount;
+    this.amount = amount;
   }
 
   public static getTestData() {
@@ -37,65 +37,97 @@ public class PurchaseOrder {
 }
 
 
+public class HtmlReport {
+  public printReport(data) {
+    System.println("<table>");
+    // table header:
+    System.println("  <tr>");
+    for(columnName in data[0].getColumnNames()) {
+      System.println("    <th>", columnName, "</th>");
+    }
+    System.println("  </tr>");
 
+    // table body:
+    for(row in data) {
+      System.println("  <tr>");
+      for(columnName in row.getColumnNames()) {
+        System.println("    <td>", row.getValue(columnName), "</td>");
+      }
+      System.println("  </tr>");
+    }
+    System.println("</table>");
+  }
+}
 
+//----
 
 abstract class DataRow {
   public getColumnNames();
   public getValue(columnName);
 }
 
-public class Person implements DataRow {
-  public name;
-  public age;
+public class InventoryItem implements DataRow {
+  public description;
+  public quantity;
 
-  public Person(name, age) {
-    this.name = name;
-    this.age = age;
+  public InventoryItem(description, quantity) {
+    this.description = description;
+    this.quantity = quantity;
   }
 
+  public static getTestData() {
+    data = new Vector();
+    data.add(new InventoryItem("Widget", 28));
+    data.add(new InventoryItem("Gizmo",  32));
+    data.add(new InventoryItem("Thingy", 38));
+    return data;
+  }
+
+  // DataRow:
   public getColumnNames() {
-    ...
+    cols = new Vector();
+    cols.add("description");
+    cols.add("quantity");
+    return cols;
   }
 
   public getValue(columnName) {
-    if(columnName == "name") return this.name;
-    else if(columnName == "age") return this.age;
-    return;
+    if(columnName == "description") return this.description;
+    else if(columnName == "quantity") return this.quantity;
   }
 }
 
-public class TestData {
+public class PurchaseOrder {
+  public id;
+  public date;
+  public amount;
+
+  public PurchaseOrder(id, date, amount) {
+    this.id = id;
+    this.date = date;
+    this.amount = amount;
+  }
+
   public static getTestData() {
     data = new Vector();
-    data.add(new Person("Andrew", 28));
-    data.add(new Person("Bill"  , 38));
-    data.add(new Person("Carrie", 32));
+    data.add(new PurchaseOrder(1, "2010-01-01", 12.99));
+    data.add(new PurchaseOrder(2, "2010-02-02", 24.98));
+    data.add(new PurchaseOrder(3, "2010-03-03", 18.85));
     return data;
   }
-}
 
-
-
-
-
-
-public class Person {
-  public String name;
-  public Integer age;
-
-  public Person(String name, Integer age) {
-    this.name = name;
-    this.age = age;
+  // DataRow:
+  public getColumnNames() {
+    cols = new Vector();
+    cols.add("id");
+    cols.add("date");
+    cols.add("amount");
+    return cols;
   }
-}
 
-public class TestData {
-  public static Vector getTestData() {
-    Vector data = new Vector();
-    data.add(new Person("Andrew", 28));
-    data.add(new Person("Bill"  , 38));
-    data.add(new Person("Carrie", 32));
-    return data;
+  public getValue(columnName) {
+    if(columnName == "id") return this.id;
+    else if(columnName == "date") return this.date;
+    else if(columnName == "amount") return this.amount;
   }
 }
