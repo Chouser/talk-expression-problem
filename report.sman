@@ -1,21 +1,3 @@
-public class InventoryItem {
-  public description;
-  public quantity;
-
-  public InventoryItem(description, quantity) {
-    this.description = description;
-    this.quantity = quantity;
-  }
-
-  public static getTestData() {
-    data = new Vector();
-    data.add(new InventoryItem("Widget", 28));
-    data.add(new InventoryItem("Gizmo",  32));
-    data.add(new InventoryItem("Thingy", 38));
-    return data;
-  }
-}
-
 public class PurchaseOrder {
   public id;
   public date;
@@ -32,6 +14,24 @@ public class PurchaseOrder {
     data.add(new PurchaseOrder(1, "2010-01-01", 12.99));
     data.add(new PurchaseOrder(2, "2010-02-02", 24.98));
     data.add(new PurchaseOrder(3, "2010-03-03", 18.85));
+    return data;
+  }
+}
+
+public class InventoryItem {
+  public description;
+  public quantity;
+
+  public InventoryItem(description, quantity) {
+    this.description = description;
+    this.quantity = quantity;
+  }
+
+  public static getTestData() {
+    data = new Vector();
+    data.add(new InventoryItem("Widget", 28));
+    data.add(new InventoryItem("Gizmo",  32));
+    data.add(new InventoryItem("Thingy", 38));
     return data;
   }
 }
@@ -64,37 +64,6 @@ public class HtmlReport {
 abstract class DataRow {
   public getColumnNames();
   public getValue(columnName);
-}
-
-public class InventoryItem implements DataRow {
-  public description;
-  public quantity;
-
-  public InventoryItem(description, quantity) {
-    this.description = description;
-    this.quantity = quantity;
-  }
-
-  public static getTestData() {
-    data = new Vector();
-    data.add(new InventoryItem("Widget", 28));
-    data.add(new InventoryItem("Gizmo",  32));
-    data.add(new InventoryItem("Thingy", 38));
-    return data;
-  }
-
-  // DataRow:
-  public getColumnNames() {
-    cols = new Vector();
-    cols.add("description");
-    cols.add("quantity");
-    return cols;
-  }
-
-  public getValue(columnName) {
-    if(columnName == "description") return this.description;
-    else if(columnName == "quantity") return this.quantity;
-  }
 }
 
 public class PurchaseOrder {
@@ -131,3 +100,37 @@ public class PurchaseOrder {
     else if(columnName == "amount") return this.amount;
   }
 }
+
+public class InventoryItem implements DataRow {
+  public description;
+  public quantity;
+
+  public InventoryItem(description, quantity) {
+    this.description = description;
+    this.quantity = quantity;
+  }
+
+  public static getTestData() {
+    data = new Vector();
+    data.add(new InventoryItem("Widget", 28));
+    data.add(new InventoryItem("Gizmo",  32));
+    data.add(new InventoryItem("Thingy", 38));
+    return data;
+  }
+
+  // DataRow:
+  public getColumnNames() {
+    cols = new Vector();
+    cols.add("description");
+    cols.add("quantity");
+    cols.add("unit cost");
+    cols.add("total cost");
+    return cols;
+  }
+
+  public getValue(columnName) {
+    if(columnName == "description") return this.description;
+    else if(columnName == "quantity") return this.quantity;
+  }
+}
+
