@@ -17,7 +17,8 @@
 * Review the pros and cons of each solution.
 
 !SLIDE center transition=scrollLeft
-<embed src="image/one/media/expression-problems.svg" width="1024" height="768" type="image/svg+xml" />
+<!--<embed src="image/one/media/expression-problems.svg" width="1024" height="768" type="image/svg+xml" />-->
+<img src="media/expression-problems.png" width="991" height="730" />
 
 !SLIDE transition=scrollLeft
 # Simple business objects
@@ -65,8 +66,7 @@
         data.add(new InventoryItem("Gizmo",  32, 6.00));
         data.add(new InventoryItem("Thingy", 38, 0.98));
         return data;
-      }
-    }
+    } }
 
 !SLIDE transition=scrollLeft
 
@@ -281,13 +281,19 @@
 
 !SLIDE bullets transition=scrollLeft
 
+# Solution 3
+
+<embed src="image/one/media/the-multiple-dispatch.svg" width="1024" height="768" type="image/svg+xml" />
+
+!SLIDE bullets transition=scrollLeft
+
 # Connect `PurchaseOrder`
 # to `html-report`
 
     @@@ clojure
     ; Abstraction, like DataRow:
-    (defmulti get-column-names type)
-    (defmulti get-value (fn [this col] (type this)))
+    (defmulti get-column-names (fn [this] (type this)))
+    (defmulti get-value    (fn [this col] (type this)))
 
     ; Implement abstraction for PurchaseOrder
     (defmethod get-column-names ::PurchaseOrder [_]
@@ -314,12 +320,6 @@
         "unit cost"  (format-money (:cost this))
         "total cost" (format-money
                       (* (:cost this) (:quantity this)))))
-
-!SLIDE bullets transition=scrollLeft
-
-# Solution 3
-
-<embed src="image/one/media/the-multiple-dispatch.svg" width="1024" height="768" type="image/svg+xml" />
 
 !SLIDE bullets transition=scrollLeft
 
