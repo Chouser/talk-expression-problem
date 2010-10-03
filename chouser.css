@@ -1,18 +1,14 @@
-pre.sh_sourceCode .sh_string      { font-family: DejaVu Sans Mono; }
-pre.sh_sourceCode .sh_regexp      { font-family: DejaVu Sans Mono; }
-pre.sh_sourceCode .sh_specialchar { font-family: DejaVu Sans Mono; }
-pre.sh_sourceCode .sh_linenum     { font-family: DejaVu Sans Mono; }
-pre.sh_sourceCode .sh_url         { font-family: DejaVu Sans Mono; }
-pre.sh_sourceCode .sh_fixed       { font-family: DejaVu Sans Mono; }
-
-.command h1 { font-family: DejaVu Sans Mono; }
-.code       { font-family: DejaVu Sans Mono; }
-.results    { font-family: DejaVu Sans Mono; }
+pre.sh_sourceCode .sh_string      { font-family: inherit; }
+pre.sh_sourceCode .sh_regexp      { font-family: inherit; }
+pre.sh_sourceCode .sh_specialchar { font-family: inherit; }
+pre.sh_sourceCode .sh_linenum     { font-family: inherit; }
+pre.sh_sourceCode .sh_url         { font-family: inherit; }
+pre.sh_sourceCode .sh_fixed       { font-family: inherit; }
 
 @media print {
-  pre, code { font-family: DejaVu Sans Mono; }
+  pre, code { font-size: 65%; font-family: DejaVu Sans Mono; }
 }
 
-h1 code { font-size: 60%; }
-code { font-size: 80%; font-family: DejaVu Sans Mono; }
-pre { font-size: 210%; font-family: DejaVu Sans Mono; }
+@media screen {
+  code { font-size: 65%; font-family: DejaVu Sans Mono; }
+}
