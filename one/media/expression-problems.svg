@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1024"
+   height="768"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.47 r22583"
+   sodipodi:docname="expression-problems.svg"
+   inkscape:export-filename="/home/chouser/proj/clojure-talk-proto/media/expression-problems.png"
+   inkscape:export-xdpi="72.029999"
+   inkscape:export-ydpi="72.029999">
+  <defs
+     id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+    <inkscape:perspective
+       id="perspective2920"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3009"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3080"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3169"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3258"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3329"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="575.0393"
+     inkscape:cy="423.19429"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1271"
+     inkscape:window-height="738"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-284.36218)">
+    <image
+       sodipodi:absref="/home/chouser/proj/clojure-talk-proto/media/face-ericrobinson.jpg"
+       xlink:href="face-ericrobinson.jpg"
+       transform="matrix(0.90375864,0.42804244,-0.428096,0.90373326,0,0)"
+       width="455.71652"
+       height="303.94464"
+       id="image3011"
+       x="758.46527"
+       y="207.12758" />
+    <image
+       sodipodi:absref="/home/chouser/proj/clojure-talk-proto/media/face-merfam.jpg"
+       xlink:href="face-merfam.jpg"
+       transform="matrix(0.71186999,0.70231127,-0.70236579,0.71181619,0,0)"
+       style="stroke:#000000;stroke-width:1.28152943;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       width="253.71483"
+       height="338.28607"
+       id="image3082"
+       x="610.04181"
+       y="265.50366" />
+    <image
+       sodipodi:absref="/home/chouser/proj/clojure-talk-proto/media/face-pinkstockphotos.jpg"
+       xlink:href="face-pinkstockphotos.jpg"
+       transform="matrix(0.98799494,-0.15448626,0.15450936,0.98799132,0,0)"
+       width="454.77542"
+       height="303.30951"
+       id="image3171"
+       x="-20.09977"
+       y="422.50546" />
+    <image
+       sodipodi:absref="/home/chouser/proj/clojure-talk-proto/media/face-spo0ky.jpg"
+       xlink:href="face-spo0ky.jpg"
+       transform="matrix(-0.69404311,0.71993345,-0.71998657,-0.693988,0,0)"
+       width="358.48297"
+       height="268.86298"
+       id="image3260"
+       x="-211.19969"
+       y="-993.47937" />
+    <image
+       sodipodi:absref="/home/chouser/proj/clojure-talk-proto/media/face-clintjcl.jpg"
+       xlink:href="face-clintjcl.jpg"
+       transform="matrix(0.9589558,0.2835556,-0.28359556,0.95894398,0,0)"
+       width="419.62387"
+       height="293.38998"
+       id="image2922"
+       x="385.56659"
+       y="500.44412" />
+    <image
+       sodipodi:absref="/home/chouser/proj/clojure-talk-proto/media/face-tonytoo.jpg"
+       xlink:href="face-tonytoo.jpg"
+       transform="matrix(0.96400989,-0.26586638,0.26590423,0.96399945,0,0)"
+       width="344.24286"
+       height="344.22021"
+       id="image3331"
+       x="166.48485"
+       y="787.55811" />
+  </g>
+</svg>
