@@ -74,7 +74,7 @@
 
     @@@ strawman
     public class HtmlReport {
-      public printReport(data) {
+      public static printReport(data) {
         Sys.print("<table><tr>");       // table header
         for(col in data[0].getColumnNames()) {
           Sys.print("<th>", col, "</th>");
