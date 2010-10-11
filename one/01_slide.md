@@ -4,7 +4,7 @@
 
 * Chris Houser
 * a.k.a. Chouser
-* Strange Loop, Oct. 21 2010, St. Louis
+* Strange Loop, Oct. 14 2010, St. Louis
 
 !SLIDE bullets transition=scrollLeft
 
@@ -157,7 +157,7 @@
 
 !SLIDE bullets incremental transition=scrollLeft
 
-# The problem reveals itself
+# The problem...
 
 * “A vector is like a row of data with numbers for the column names”
 * Implement `DataRow` for the built-in class `Vector`
@@ -238,6 +238,19 @@
 
 !SLIDE bullets transition=scrollLeft
 
+# Monkey patch drawback
+
+* Method name clashes within the class
+
+.notes foo!
+
+    @@@strawman
+
+
+    myVector.getValue(x);  // which "getValue"?
+
+!SLIDE bullets transition=scrollLeft
+
 # Clojure business objects
 
     @@@ clojure
@@ -285,16 +298,20 @@
 
 <embed src="image/one/media/the-multiple-dispatch.svg" width="1024" height="768" type="image/svg+xml" />
 
-!SLIDE bullets transition=scrollLeft
+!SLIDE transition=scrollLeft
 
-# Connect `PurchaseOrder`
-# to `html-report`
+# Abstraction used<br />by `html-report`
 
     @@@ clojure
     ; Abstraction, like DataRow:
     (defmulti get-column-names (fn [this] (type this)))
     (defmulti get-value    (fn [this col] (type this)))
 
+!SLIDE bullets transition=scrollLeft
+
+# Connect `PurchaseOrder`<br />to `html-report`
+
+    @@@ clojure
     ; Implement abstraction for PurchaseOrder
     (defmethod get-column-names ::PurchaseOrder [_]
       ["id" "date" "amount"])
@@ -304,8 +321,7 @@
 
 !SLIDE bullets transition=scrollLeft
 
-# Connect `InventoryItem`
-# to `html-report`
+# Connect `InventoryItem`<br />to `html-report`
 
     @@@ clojure
     (defn format-money [x] (format "%.2f" x))
@@ -323,39 +339,45 @@
 
 !SLIDE bullets transition=scrollLeft
 
-# Solution 3: multimethods
+# Connect `Vector`<br />to `html-report`
 .notes (import 'clojure.lang.Associative)
 
     @@@clojure
+    (defmethod get-column-names Associative [this]
+      (range (count this)))
+    
+    (defmethod get-value Associative [this column-name]
+      (get this column-name))
+
     (def multiplication-table
       [[1  2  3  4  5]
        [2  4  6  8 10]
        [3  6  9 12 15]
        [4  8 12 16 20]])
-    
-    (defmethod get-column-names Associative [this]
-      (range (count this)))
-    
-    (defmethod get-value Associative [this column-name]
-      (nth this column-name))
 
 !SLIDE bullets transition=scrollLeft
+      
+# Multimethods namespacing
 
-# Grouped multimethods
+* All methods exist in *declaring* namespace, not *target-type's* namespace
 
-.notes Wouldn't it be nice if...
+.notes whatever
 
     @@@clojure
-    (def-type-multis DataRow
-      (get-column-names [this])
-      (get-value [this column-name]))
-    
-    (defmethods DataRow
-      clojure.lang.Associative
-      (get-column-names [this]
-        (range (count this)))
-      (get-value [this column-name]
-        (nth this column-name)))
+    (ns chouser.reporter)
+    (defmulti get-value ...)
+
+    (ns other.interloper)
+    (defmulti get-value ...)
+
+    (chouser.reporter/get-value ...)
+    (other.interloper/get-value ...)
+
+!SLIDE bullets incremental transition=scrollLeft
+
+# Multimethod drawback
+
+* Performance
 
 !SLIDE bullets transition=scrollLeft
 
@@ -365,4 +387,78 @@
 
 !SLIDE bullets transition=scrollLeft
 
-* The End
+# Records
+
+* Protocols dispatch on an object's **class**
+
+.notes bar!
+
+    @@@clojure
+    (defrecord PurchaseOrder [id date amount])
+    
+    (def test-purchase-orders
+      [(PurchaseOrder. 1 "2010-01-01" 12.99)
+       (PurchaseOrder. 2 "2010-02-02" 24.98)
+       (PurchaseOrder. 3 "2010-03-03" 18.85)])
+    
+    (defrecord InventoryItem [description quantity cost])
+    
+    (def test-inventory-items
+      [(InventoryItem. "Widget" 28 5.00)
+       (InventoryItem. "Gizmo"  32 6.00)
+       (InventoryItem. "Thingy" 39 0.98)])
+
+!SLIDE bullets transition=scrollLeft
+
+# A Protocol 
+
+    @@@clojure
+    (defprotocol DataRow
+      (get-column-names [this])
+      (get-value [this column-name]))
+    
+    (extend-protocol DataRow
+      clojure.lang.Associative
+      (get-column-names [this]
+        (range (count this)))
+      (get-value [this column-name]
+        (get this column-name)))
+
+!SLIDE bullets incremental transition=scrollLeft
+
+# Protocol drawbacks
+
+* Can only dispatch on *class* of object
+
+!SLIDE bullets transition=scrollLeft
+
+# The Expression Problem
+
+* ...is when you need to implement an abstraction for an *existing*, hard-to-modify concrete object.
+
+# Can be solved using:
+
+* Adapter<br/>Monkey patch<br/>Multimethod<br/>Protocol
+
+!SLIDE bullets transition=scrollLeft
+
+# Solutions
+
+* **Adapter**<br/>has equality, identity problems
+* **Monkey patch**<br/>has method-name collision problems
+* **Multimethod**<br/>is a good solution and very flexible
+* **Protocol**<br/>is fastest; be aware of design implications
+
+!SLIDE bullets transition=scrollLeft
+
+* Have you experienced the expression problem? Which solution did you use?
+* Did you experience the<br/>drawbacks of that solution?
+* Which of the other solutions<br/>are available in your language?
+* Would their drawbacks have been<br/>more desirable in your case?
+* Would either of Clojure's<br/>solutions been a better fit?
+
+!SLIDE bullets transition=scrollLeft
+
+# Any other questions?
+
+<embed src="image/one/media/cover.svg" width="1024" height="768" type="image/svg+xml" />

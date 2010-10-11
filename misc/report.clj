@@ -68,7 +68,7 @@
   (range (count this)))
 
 (defmethod get-value clojure.lang.Associative [this column-name]
-  (nth this column-name))
+  (get this column-name))
 
 
 ;; wouldn't it be nice if...
@@ -82,7 +82,7 @@
   (get-column-names [this]
     (range (count this)))
   (get-value [this column-name]
-    (nth this column-name)))
+    (get this column-name)))
 
 ;; so make it happen...
 
@@ -109,13 +109,14 @@
   (get-column-names [this]
     (range (count this)))
   (get-value [this column-name]
-    (nth this column-name)))
+    (get this column-name)))
 
 
 (defrecord PurchaseOrder [id date amount])
 
 ;; Identical implementations:
 (extend-protocol DataRow
+  PurchaseOrder
   (get-column-names [this]
     ["id" "date" "amount"])
   (get-value [this column-name]
@@ -129,6 +130,7 @@
 (defrecord InventoryItem [description quantity cost])
 
 (extend-protocol DataRow
+  InventoryItem
   (get-column-names [this]
     ["description" "quantity" "unit cost" "total cost"])
   (get-value [this column-name]
