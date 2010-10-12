@@ -6,7 +6,20 @@ pre.sh_sourceCode .sh_url         { font-family: inherit; }
 pre.sh_sourceCode .sh_fixed       { font-family: inherit; }
 
 @media print {
-  pre, code { font-size: 65%; font-family: DejaVu Sans Mono; }
+  .slide:first-child { margin-top: 0; }
+
+  .slide .center {
+      width: 1020px;
+      height: 740px;
+      margin: 40px;
+  }
+  
+  #preso, .slide {
+      width: 1020px;
+      height: 740px;
+      margin: 40px;
+  }
+  pre, code { font-family: DejaVu Sans Mono; }
 }
 
 @media screen {

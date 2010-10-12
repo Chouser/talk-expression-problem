@@ -1,1 +1,2 @@
-{ "name": "My Preso", "sections": [ {"section":"one"} ]}
+{ "name": "Clojure's Solutions to the Expression Problem",
+  "sections": [ {"section":"one"} ]}
