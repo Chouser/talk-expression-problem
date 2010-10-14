@@ -276,7 +276,6 @@
 # Clojure `html-report`
 
     @@@ clojure
-    (ns chouser.reporter)
     (defn html-report [data]
       (println "<table>")
       (println "  <tr>")
@@ -335,7 +334,7 @@
         "quantity"   (:quantity this)
         "unit cost"  (format-money (:cost this))
         "total cost" (format-money
-                      (* (:cost this) (:quantity this)))))
+                       (* (:cost this) (:quantity this)))))
 
 !SLIDE bullets transition=scrollLeft
 
@@ -357,7 +356,7 @@
 
 !SLIDE bullets transition=scrollLeft
       
-# Multimethods namespacing
+# Multimethod namespacing
 
 * All methods exist in *declaring* namespace, not *target-type's* namespace
 
@@ -410,7 +409,7 @@
 
 !SLIDE bullets transition=scrollLeft
 
-# A Protocol 
+# `DataRow` Protocol, extended to `Associative`
 
     @@@clojure
     (defprotocol DataRow
@@ -424,11 +423,48 @@
       (get-value [this column-name]
         (get this column-name)))
 
+!SLIDE bullets transition=scrollLeft
+
+# `DataRow` Protocol, extended to `PurchaseOrder`
+
+    @@@clojure
+    (extend-protocol DataRow
+      PurchaseOrder
+      (get-column-names [this]
+        ["id" "date" "amount"])
+      (get-value [this column-name]
+        (get this (keyword column-name))))
+
+!SLIDE bullets transition=scrollLeft
+
+# `DataRow` Protocol, extended to `InventoryItem`
+
+    @@@clojure
+    (extend-protocol DataRow
+      InventoryItem
+      (get-column-names [this]
+        ["description" "quantity" "unit cost" "total cost"])
+      (get-value [this column-name]
+        (case column-name
+          "description" (:description this)
+          "quantity"    (:quantity this)
+          "unit cost"   (format-money (:cost this))
+          "total cost"  (format-money
+                          (* (:cost this) (:quantity this))))))
+
 !SLIDE bullets incremental transition=scrollLeft
 
 # Protocol drawbacks
 
 * Can only dispatch on *class* of object
+
+!SLIDE bullets incremental transition=scrollLeft
+
+# Moving from Multimethods to Protocols
+
+* Change constructors/factories
+* Move implementations from `defmethod` to `extend`
+* No change at all to users of the multimethod/protocol functions
 
 !SLIDE bullets transition=scrollLeft
 
