@@ -1,3 +1,5 @@
+(preproc,comment) = `(;=>)(.*)`
+
 comment delim "#\|" "\|#" multiline nested
 comment start ";"
 
@@ -57,6 +59,9 @@ normal = '(\b|\+|\?|\*|\-)[[:alnum:]_\-\+\*\?:]+(\+|\?|\*|\-|\b)'
 #(cbracket,function) = `(\( *)([[:alnum:]\-]*)`
 
 cbracket = "(|)"
+cbracket = "#(|)"
 cbracket = "[|]"
 cbracket = "{|}"
 cbracket = "#{|}"
+
+number = '(%&|%[1-9]?)'
